@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Regiment of Princes</title>
 </head>
 <body>
@@ -5470,4 +5471,20 @@
 <span id="line-5463">That knowith He Whom nothyng is hid fro.</span><br><strong>Explicit</strong>
 <note>Lifted from <a href="http://d.lib.rochester.edu/teams/text/blyth-hoccleve-regiment-of-princes">http://d.lib.rochester.edu/teams/text/blyth-hoccleve-regiment-of-princes</a></note>
 </body>
+<script>
+    var url = decodeURIComponent(window.location.href);
+    console.log(url);
+    var fragment = url.match(/#L\.\s*(\d+)/);
+    if (fragment != null)
+    {
+        console.log("fragment");
+        console.log(fragment);
+        var scroll_to = "line-"+fragment[1];
+        console.log(scroll_to);
+        var line = document.getElementById(scroll_to);
+        console.log(line);
+        line.style.cssText = 'background-color:lightblue';
+        line.scrollIntoView(true);
+    }
+</script>
 </html>
