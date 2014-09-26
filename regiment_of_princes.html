@@ -5472,19 +5472,89 @@
 <note>Lifted from <a href="http://d.lib.rochester.edu/teams/text/blyth-hoccleve-regiment-of-princes">http://d.lib.rochester.edu/teams/text/blyth-hoccleve-regiment-of-princes</a></note>
 </body>
 <script>
+    function get_line(line_number)
+    {
+        var l = parseInt(line_number);
+        var line_id = "line-"+l;
+        return document.getElementById(line_id);
+    }
+
+    function highlight_line (line_number)
+    {
+        var elt = get_line(line_number);
+        elt.style.cssText = 'background-color:lightblue';
+    }
+
+    function hl_scroll (highlights) 
+    {
+        var min = Number.MAX_VALUE;
+        for (var i = 0 ; i < highlights.length; i++)
+        {
+            if (highlights[i].constructor === Array) {
+                var range = [];
+                for (var k = 0; k < highlights[i].length; k++)
+                {
+                    console.log(k);
+                    range[k] = parseInt(highlights[i][k]);
+                }
+                    console.log(range);
+                for (var j = range[0]; j <= range[1]; j++)
+                {
+                    highlight_line(j);
+                }
+                if (range[0] < min)
+                {
+                    min = range[0];
+                }
+            }
+            else
+            {
+                var line = parseInt(highlights[i]);
+                highlight_line(line);
+                if (line < min)
+                {
+                    min = line;
+                }
+            }
+        }
+
+        console.log("min is = " + min);
+        var elt = get_line(min);
+        elt.scrollIntoView(true);
+        console.log(elt);
+    }
+
     var url = decodeURIComponent(window.location.href);
     console.log(url);
-    var fragment = url.match(/#L\.\s*(\d+)/);
+    var fragment = url.match(/#L\.\s*(.*)/);
+    var lines = [];
+    var res = [];
     if (fragment != null)
     {
-        console.log("fragment");
-        console.log(fragment);
-        var scroll_to = "line-"+fragment[1];
-        console.log(scroll_to);
-        var line = document.getElementById(scroll_to);
-        console.log(line);
-        line.style.cssText = 'background-color:lightblue';
-        line.scrollIntoView(true);
+        var str = fragment[1];
+        lines = str.split(/\s*,\s*/);
+        console.log("lines");
+        console.log(lines);
+        for (var i = 0; i < lines.length; i++)
+        {
+            var s = lines[i];
+            var c = s.match(/(\d+)\s*(?:[-–]\s*(\d+))?/);
+            console.log("c");
+            console.log(c);
+            if (c != null)
+            {
+                if (c[2] === undefined)
+                {
+                    c[2] = c[1];
+                }
+                res.push([c[1], c[2]]);
+            }
+        }
     }
+    if (res.length > 0)
+    {
+        hl_scroll(res);
+    }
+
 </script>
 </html>

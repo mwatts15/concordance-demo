@@ -61,7 +61,7 @@
                 if (item == "CITATION")
                 {
                     var content = row[item];
-                    var matches = content.match(/L[.] \d+(\s*-\s*\d+)?/);
+                    var matches = content.match(/L[.] ((,\s*)?\d+(\s*[–-]\s*\d+)?)+/);
                     var url = "/html/regiment_of_princes.html";
                     if (matches != null)
                     {
