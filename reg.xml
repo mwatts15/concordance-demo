@@ -1,0 +1,16 @@
+<text>
+    <head>Regiment of Princes</head>
+    <body>
+        <l xml:id="l1" n="1">Musynge upon the restlees bysynesse</l>
+        <l xml:id="l2" n="2">Which that this troubly world hath ay on honde,</l>
+        <l xml:id="l2157" n="2157">Now gracious Prince, ageyn that the corone</l>
+        <l xml:id="l2158" n="2158">Honure yow with rial dignitee,</l>
+        <l xml:id="l2465" n="2465">Seint Anselm seith, justice is libertee</l>
+    </body>
+    <spanGrp resp="MarkW" type="concordance">
+        <span from="#l1" to="#l2">first</span>
+        <span from="#l2157">second</span>
+        <span from="#l2158">third</span>
+        <span from="#l2465">third</span>
+    </spanGrp>
+</text>
