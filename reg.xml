@@ -1,14 +1,22 @@
-<text>
+<text xmlns="http://www.tei-c.org/ns/1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+      xmlns:tei="http://www.tei-c.org/ns/1.0"
+      xmlns:ct="http://hocl.tk/schema/">
     <head>Regiment of Princes</head>
     <body>
         <l xml:id="l1" n="1">Musynge upon the restlees bysynesse</l>
         <l xml:id="l2" n="2">Which that this troubly world hath ay on honde,</l>
+        <l xml:id="l6" n="6">As I lay in my bed upon a nyght,</l>
+        <l xml:id="l8" n="8">And many a day and nyght that wikkid hyne</l>
         <l xml:id="l2157" n="2157">Now gracious Prince, ageyn that the corone</l>
         <l xml:id="l2158" n="2158">Honure yow with rial dignitee,</l>
         <l xml:id="l2465" n="2465">Seint Anselm seith, justice is libertee</l>
     </body>
+    <!--See: http://www.tei-c.org/release/doc/tei-p5-doc/en/html/AI.html#AISP-->
     <spanGrp resp="MarkW" type="concordance">
         <span from="#l1" to="#l2">first</span>
+        <!--I'm not sure if the `type` is meant to be used in this fashion. It is limited to only naming a single class... -->
+        <span target="#l6" type="abstract-moment">Specific place (Chester Inn) and time creates narrative context of entering dream.</span>
         <span from="#l2157">second</span>
         <span from="#l2158">third</span>
         <span from="#l2465">third</span>
